@@ -1,7 +1,7 @@
 /* eslint-disable */
 window.i18next.use(window.i18nextHttpBackend).use(window.i18nextBrowserLanguageDetector).init({
   // debug: 'true',
-  preload:['en','zh','zh-TW','dev'],
+  preload:['en','fr','zh','zh-TW','dev'],
   detection: {
     // order and from where user language should be detected
     order: ['querystring', 'cookie', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],

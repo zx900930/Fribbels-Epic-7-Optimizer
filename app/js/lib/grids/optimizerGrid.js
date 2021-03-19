@@ -233,6 +233,8 @@ function buildGrid() {
       var localeText = AG_GRID_LOCALE_ZH;
     } else if (i18next.language == 'zh-TW') {
       var localeText = AG_GRID_LOCALE_ZH_TW;
+    } else if (i18next.language == 'fr') {
+      var localeText = AG_GRID_LOCALE_FR;
     } else {
       var localeText = AG_GRID_LOCALE_EN;
     }
