@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         ItemsGrid.initialize();
         HeroesTab.initialize();
         HeroesGrid.initialize();
+        Selectors.initialize();
 
         await Settings.initialize();
         Saves.initialize();
@@ -118,7 +119,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     Scanner.initialize();
     Updater.checkForUpdates();
     DarkMode.initialize();
-    Selectors.initialize();
 
     Importer.addEventListener();
 
