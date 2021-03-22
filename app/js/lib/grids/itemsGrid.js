@@ -1,11 +1,5 @@
 const stringSimilarity = require('string-similarity');
 const tinygradient = require('tinygradient');
-const AG_GRID_LOCALE_EN = require(Files.path(Files.getDataPath() + '/locales/en/gridlocale.js'));
-const AG_GRID_LOCALE_FR = require(Files.path(Files.getDataPath() + '/locales/fr/gridlocale.js'));
-const AG_GRID_LOCALE_KO = require(Files.path(Files.getDataPath() + '/locales/ko/gridlocale.js'));
-const AG_GRID_LOCALE_ES = require(Files.path(Files.getDataPath() + '/locales/es/gridlocale.js'));
-const AG_GRID_LOCALE_ZH = require(Files.path(Files.getDataPath() + '/locales/zh/gridlocale.js'));
-const AG_GRID_LOCALE_ZH_TW = require(Files.path(Files.getDataPath() + '/locales/zh-TW/gridlocale.js'));
 
 var lightGradient = tinygradient('#ffffff', '#8fed78');
 var lightScoreGradient = tinygradient('#ffa8a8', '#ffffe5', '#8fed78');

@@ -1,6 +1,6 @@
 // Example locale file for English, give this to your locale team to translate
 
-const AG_GRID_LOCALE_KO = {
+global.AG_GRID_LOCALE_KO = {
     // Set Filter
     selectAll: '(Tout sélectionner)',
     selectAllSearchResults: '(Select All Search Results)',

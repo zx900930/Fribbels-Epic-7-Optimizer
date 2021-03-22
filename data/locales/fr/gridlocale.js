@@ -1,6 +1,6 @@
 // Example locale file for English, give this to your locale team to translate
 
-const AG_GRID_LOCALE_FR = {
+global.AG_GRID_LOCALE_FR = {
     // Set Filter
     selectAll: '(Tout sélectionner)',
     selectAllSearchResults: '(Select All Search Results)',
@@ -104,8 +104,8 @@ const AG_GRID_LOCALE_FR = {
     totalRows: 'Total Rows',
     totalAndFilteredRows: 'Rows',
     more: 'More',
-    to: 'to',
-    of: 'of',
+    to: '~',
+    of: '/',
     page: 'Page',
     nextPage: 'Next Page',
     lastPage: 'Last Page',
