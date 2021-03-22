@@ -272,7 +272,7 @@
  "Save/Load all optimizer data": "Save/Load all optimizer data",
  "You can load/save your hero + gear configuration here.": "You can load/save your hero + gear configuration here.",
  "Creating gear data from screenshots": "Creating gear data from screenshots",
- "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)<br>": "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)<br>",
+ "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)</br>": "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)</br>",
  "Once results are printed, hit 'Export'. This will output a 'gear.txt' in the folder where you installed this app.": "Once results are printed, hit 'Export'. This will output a 'gear.txt' in the folder where you installed this app.",
  "Import gear from Zarroc optimizer": "Import gear from Zarroc optimizer",
  "Select the Zarroc optimizer file here.": "Select the Zarroc optimizer file here.",
