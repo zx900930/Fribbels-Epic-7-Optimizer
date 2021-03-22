@@ -19,18 +19,8 @@ global.buildsGrid = null;
 var currentHeroes = [];
 var selectedBuildNode = null;
 
-if (i18next.language == 'zh') {
-  var localeText = AG_GRID_LOCALE_ZH;
-} else if (i18next.language == 'zh-TW') {
-  var localeText = AG_GRID_LOCALE_ZH_TW;
-} else if (i18next.language == 'fr') {
-  var localeText = AG_GRID_LOCALE_FR;
-} else {
-  var localeText = AG_GRID_LOCALE_EN;
-}
-console.log('localeText:'+localeText);
-
 var currentAggregate = {};
+
 module.exports = {
 
     toggleDarkMode(enabled) {
@@ -48,7 +38,16 @@ module.exports = {
     },
 
     initialize: () => {
-        buildGrid();
+        if (i18next.language == 'zh') {
+          var localeText = AG_GRID_LOCALE_ZH;
+        } else if (i18next.language == 'zh-TW') {
+          var localeText = AG_GRID_LOCALE_ZH_TW;
+        } else {
+          var localeText = AG_GRID_LOCALE_EN;
+        }
+        console.log('localeText:'+localeText);
+
+        buildGrid(localeText);
     },
 
     refresh: async (heroes, id) => {
@@ -205,7 +204,7 @@ module.exports = {
     },
 }
 
-function buildGrid(heroes) {
+function buildGrid(localeText) {
     const gridOptions = {
         defaultColDef: {
             width: 47,
@@ -243,7 +242,7 @@ function buildGrid(heroes) {
             {headerName: i18next.t('upg'), field: 'upgrades', width: 65},
         ],
         rowSelection: 'single',
-        rowData: heroes,
+        rowData: [],
         suppressScrollOnNewData: true,
         rowHeight: 45,
         pagination: true,

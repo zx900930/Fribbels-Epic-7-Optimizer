@@ -274,7 +274,7 @@ Please read these instructions carefully!
     * Do not download the Source Code options, those won't work
 2. Install **Java 8 - 64 bit**
     * Mac needs both JRE and JDK:
-    * JRE: https://java.com/en/download/manual.jsp - Get the offline installer
+    * JRE: https://java.com/en/download/manual.jsp - Get the 64-bit offline installer
     * JDK: https://www.oracle.com/java/technologies/javase-downloads.html
     * After installing, restart your computer (required!)
   3. Follow the steps to use either the auto importer or screenshot importer
@@ -286,7 +286,7 @@ There are two importer options, one that automatically imports gear directly fro
 
 ##### First time  setup for the automatic importer on Windows
 1. Install [Python 3.4+](https://www.python.org/downloads/release/python-392/) using the Windows installer (64-bit) option. Click for [direct download link to 3.9.2](https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe). **IMPORTANT: Enable the option to add Python to PATH**
-2. Install [Npcap 1.10](https://nmap.org/npcap/#download) for Windows. Click for [direct download link](https://nmap.org/npcap/dist/npcap-1.10.exe). Use default settings
+2. Install [Npcap 1.10](https://nmap.org/npcap/#download) for Windows. Click for [direct download link](https://nmap.org/npcap/dist/npcap-1.10.exe). During installation ,enable the setting to "Support raw 802.11 traffic (and monitor mode) for wireless adapters".
 3. Restart your computer
 
 ##### First time  setup for the automatic importer on Mac
@@ -396,30 +396,23 @@ _________________
 
 There's still a lot of room to improve and I plan on adding new stuff as feedback comes in. I only work on this in my spare time, so please be patient with new features.
 
-**Done for v1.6.0**
- - Dark mode
- - Chinese translation
- - Can now merge scanned items with enhance/reforge/modifications
- - Modification filter panel
- - Modification previews
- - Fix speed EE bugs (Yuna, Rose)
- - Fix autosave loading not working from custom location
- - Multiple pages of results for the optimizer
- - Fix sliders being weird shapes
- - Fix loading cache
- - Added artifact data for Twilight Calamity and XIV. Temperance
- - Added hero images for Lucy + Designer Lilibet, hero data for Eda, Great Chief Khawana
- - Added specialty change data for Muse Rime and Zealot Carmainerose
- - Swap gear stat filter positions
+**Done for v1.6.1**
+ - Fixed saves folder not being initialized
+ - Fixed Mac scan errors
+ - Clarified java error instructions
+ - Made links open in browser instead of app
 
 **Working on:**
  - v1.7.0
+ - Make "0" bonus stats show up as blank
+ - Priority score column
 
  **Medium priority:**
  - Conversion filter
  - Add different level/awakening options
  - Use main stat gear for priority filter
  - Clear out item previews on refresh
+ - Prio column + filter
 
  **Low priority:**
  - Add material filter
@@ -496,6 +489,14 @@ There's still a lot of room to improve and I plan on adding new stuff as feedbac
   - Use the Duplicates filter on the Gear screen to find and fix your duplicate gear. Alternatively Overwrite/Merge your gear data to start over. Be careful when using the Append option, because that can result in duplicate gear being added. Most of the time you'll want to use Merge.
 
 * Drop by the Discord server for help debugging other issues: https://discord.gg/rDmB4Un7qg
+
+## Contributing to the project
+
+If you want to contribute, come by the discord server to have a chat about what you want to do. There's a huge list of todo items and I'm happy to have people add to the code.
+
+We also have an ongoing translation project to translate the optimizer into various languages.
+
+To run the code locally,
 
 ## Contact me
 
