@@ -37,7 +37,7 @@ module.exports = {
         }
 
         try {
-            buildsGrid.gridOptions.api.refreshView()
+            buildsGrid.gridOptions.api.refreshCells()
         } catch (e) {
 
         }

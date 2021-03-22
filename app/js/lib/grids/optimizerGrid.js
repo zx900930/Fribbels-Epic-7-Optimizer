@@ -45,7 +45,7 @@ module.exports = {
         }
 
         try {
-            optimizerGrid.gridOptions.api.refreshView()
+            optimizerGrid.gridOptions.api.refreshCells()
         } catch (e) {
 
         }
