@@ -2,6 +2,13 @@
 module.exports = {
     initialize: async () => {
         require(Files.path(Files.getDataPath() + '/locales/en/gridlocale.js'))
+        require(Files.path(Files.getDataPath() + '/locales/fr/gridlocale.js'))
+        require(Files.path(Files.getDataPath() + '/locales/ko/gridlocale.js'))
+        require(Files.path(Files.getDataPath() + '/locales/es/gridlocale.js'))
+        // require(Files.path(Files.getDataPath() + '/locales/de/gridlocale.js'))
+        // require(Files.path(Files.getDataPath() + '/locales/th/gridlocale.js'))
+        // require(Files.path(Files.getDataPath() + '/locales/pt/gridlocale.js'))
+        // require(Files.path(Files.getDataPath() + '/locales/jp/gridlocale.js'))
         require(Files.path(Files.getDataPath() + '/locales/zh/gridlocale.js'))
         require(Files.path(Files.getDataPath() + '/locales/zh-TW/gridlocale.js'))
 
