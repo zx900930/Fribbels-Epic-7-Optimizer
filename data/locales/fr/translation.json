@@ -272,7 +272,7 @@
  "Save/Load all optimizer data": "Sauvegarder/Charger toutes les données",
  "You can load/save your hero + gear configuration here.": "Vous pouvez charger/sauvegarder votre héros et son équipement ici.",
  "Creating gear data from screenshots": "Crée les données provenant des captures d'écran",
- "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)</br>": "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)</br>",
+ "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)": "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)",
  "Once results are printed, hit 'Export'. This will output a 'gear.txt' in the folder where you installed this app.": "Once results are printed, hit 'Export'. This will output a 'gear.txt' in the folder where you installed this app.",
  "Import gear from Zarroc optimizer": "Importer des données de l'optimisateur Zarroc",
  "Select the Zarroc optimizer file here.": "Selectionner le fichier Zarroc",

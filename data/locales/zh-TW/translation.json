@@ -272,7 +272,7 @@
   "Save/Load all optimizer data": "保存/讀取所有配裝器數據",
   "You can load/save your hero + gear configuration here.": "您可以在此保存/讀取英雄、裝備數據",
   "Creating gear data from screenshots": "通過截圖新增裝備數據",
-  "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)</br>": "點擊 '選擇資料夾' 到螢幕截圖所在的資料夾，然後點擊'上傳'。 （該資料夾如顯示為空，只需選擇它即可）",
+  "Hit 'Choose Folder', navigate into the folder where your screenshots are located, then hit 'Submit'. (The folder should show as empty, just select it)": "點擊 '選擇資料夾' 到螢幕截圖所在的資料夾，然後點擊'上傳'。 （該資料夾如顯示為空，只需選擇它即可）",
   "Once results are printed, hit 'Export'. This will output a 'gear.txt' in the folder where you installed this app.": "截圖後, 點擊 '導出'. 這將在您安裝該應用程序的文件夾中生成 'gear.txt'.",
   "Import gear from Zarroc optimizer": "從Zarroc配裝器導入裝備數據",
   "Select the Zarroc optimizer file here.": "在此處選擇Zarroc配裝器數據。",

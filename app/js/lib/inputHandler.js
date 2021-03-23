@@ -100,6 +100,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     await I18n.initialize();
 
     Subprocess.initialize(async () => {
+        Selectors.initialize();
+        Dialog.initialize();
+        Notifier.initialize();
+
         await HeroData.initialize();
         ZarrocConverter.initialize();
         OptimizerTab.initialize();
