@@ -4414,6 +4414,98 @@
       }
     }
   },
+  "Bomb Model Kanna": {
+    "_id": "bomb-model-kanna",
+    "name": "Bomb Model Kanna",
+    "moonlight": false,
+    "rarity": 5,
+    "attribute": "fire",
+    "role": "ranger",
+    "zodiac": "twins",
+    "self_devotion": {
+      "type": "att_rate",
+      "grades": {
+        "B": 0.06,
+        "A": 0.09,
+        "S": 0.12,
+        "SS": 0.15,
+        "SSS": 0.18
+      }
+    },
+    "devotion": {
+      "type": "cri",
+      "grades": {
+        "B": 0.048,
+        "A": 0.072,
+        "S": 0.096,
+        "SS": 0.12,
+        "SSS": 0.144
+      },
+      "slots": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      }
+    },
+    "specialty_change": {},
+    "assets": {
+      "icon": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/c1097_s.png",
+      "image": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/c1097_su.png",
+      "thumbnail": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/c1097_l.png"
+    },
+    "ex_equip": [],
+    "calculatedStatus": {
+      "lv50FiveStarNoAwaken": {
+        "cp": 11517,
+        "atk": 720,
+        "hp": 3881,
+        "spd": 114,
+        "def": 460,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv50FiveStarFullyAwakened": {
+        "cp": 13288,
+        "atk": 904,
+        "hp": 4221,
+        "spd": 114,
+        "def": 460,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0.18,
+        "efr": 0
+      },
+      "lv60SixStarNoAwaken": {
+        "cp": 14378,
+        "atk": 898,
+        "hp": 4879,
+        "spd": 114,
+        "def": 571,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv60SixStarFullyAwakened": {
+        "cp": 16848,
+        "atk": 1182,
+        "hp": 5299,
+        "spd": 114,
+        "def": 571,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0.18,
+        "efr": 0
+      }
+    }
+  },
   "Briar Witch Iseria": {
     "_id": "briar-witch-iseria",
     "name": "Briar Witch Iseria",
@@ -18670,6 +18762,100 @@
       }
     }
   },
+  "Mighty Scout": {
+    "_id": "mighty-scout",
+    "name": "Mighty Scout",
+    "moonlight": false,
+    "rarity": 2,
+    "attribute": "wind",
+    "role": "warrior",
+    "zodiac": "goat",
+    "self_devotion": {
+      "type": "max_hp",
+      "grades": {
+        "C": 0.0,
+        "B": 0.0,
+        "A": 0.0,
+        "S": 0.0,
+        "SS": 0.0,
+        "SSS": 0.0
+      }
+    },
+    "devotion": {
+      "type": "speed",
+      "grades": {
+        "C": 3,
+        "B": 4,
+        "A": 6,
+        "S": 7,
+        "SS": 9,
+        "SSS": 10
+      },
+      "slots": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      }
+    },
+    "specialty_change": {},
+    "assets": {
+      "icon": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/m0063_s.png",
+      "image": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/m0063_su.png",
+      "thumbnail": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/m0063_l.png"
+    },
+    "ex_equip": [],
+    "calculatedStatus": {
+      "lv50FiveStarNoAwaken": {
+        "cp": 10941,
+        "atk": 604,
+        "hp": 4138,
+        "spd": 106,
+        "def": 449,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv50FiveStarFullyAwakened": {
+        "cp": 12452,
+        "atk": 778,
+        "hp": 4726,
+        "spd": 106,
+        "def": 449,
+        "chc": 0.19,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv60SixStarNoAwaken": {
+        "cp": 13659,
+        "atk": 753,
+        "hp": 5203,
+        "spd": 106,
+        "def": 557,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv60SixStarFullyAwakened": {
+        "cp": 15955,
+        "atk": 970,
+        "hp": 5935,
+        "spd": 106,
+        "def": 557,
+        "chc": 0.27,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      }
+    }
+  },
   "Mirsa": {
     "_id": "mirsa",
     "name": "Mirsa",
@@ -23915,6 +24101,98 @@
       }
     }
   },
+  "Solitaria of the Snow": {
+    "_id": "solitaria-of-the-snow",
+    "name": "Solitaria of the Snow",
+    "moonlight": true,
+    "rarity": 5,
+    "attribute": "dark",
+    "role": "mage",
+    "zodiac": "bull",
+    "self_devotion": {
+      "type": "acc",
+      "grades": {
+        "B": 0.09,
+        "A": 0.135,
+        "S": 0.18,
+        "SS": 0.225,
+        "SSS": 0.27
+      }
+    },
+    "devotion": {
+      "type": "max_hp_rate",
+      "grades": {
+        "B": 0.036,
+        "A": 0.054,
+        "S": 0.072,
+        "SS": 0.09,
+        "SSS": 0.108
+      },
+      "slots": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      }
+    },
+    "specialty_change": {},
+    "assets": {
+      "icon": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/c2111_s.png",
+      "image": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/c2111_su.png",
+      "thumbnail": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/c2111_l.png"
+    },
+    "ex_equip": [],
+    "calculatedStatus": {
+      "lv50FiveStarNoAwaken": {
+        "cp": 12163,
+        "atk": 713,
+        "hp": 3881,
+        "spd": 111,
+        "def": 542,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv50FiveStarFullyAwakened": {
+        "cp": 13970,
+        "atk": 833,
+        "hp": 4221,
+        "spd": 115,
+        "def": 542,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0.06,
+        "efr": 0.18
+      },
+      "lv60SixStarNoAwaken": {
+        "cp": 15180,
+        "atk": 889,
+        "hp": 4879,
+        "spd": 111,
+        "def": 673,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv60SixStarFullyAwakened": {
+        "cp": 17925,
+        "atk": 1039,
+        "hp": 5299,
+        "spd": 115,
+        "def": 673,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0.18,
+        "efr": 0.18
+      }
+    }
+  },
   "Sonia": {
     "_id": "sonia",
     "name": "Sonia",
@@ -25986,6 +26264,100 @@
         "chd": 1.5,
         "dac": 0.05,
         "eff": 0,
+        "efr": 0
+      }
+    }
+  },
+  "Wild Angara": {
+    "_id": "wild-angara",
+    "name": "Wild Angara",
+    "moonlight": false,
+    "rarity": 2,
+    "attribute": "fire",
+    "role": "warrior",
+    "zodiac": "bull",
+    "self_devotion": {
+      "type": "max_hp",
+      "grades": {
+        "C": 0.0,
+        "B": 0.0,
+        "A": 0.0,
+        "S": 0.0,
+        "SS": 0.0,
+        "SSS": 0.0
+      }
+    },
+    "devotion": {
+      "type": "speed",
+      "grades": {
+        "C": 3,
+        "B": 4,
+        "A": 6,
+        "S": 7,
+        "SS": 9,
+        "SSS": 10
+      },
+      "slots": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      }
+    },
+    "specialty_change": {},
+    "assets": {
+      "icon": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/m0171_s.png",
+      "image": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/m0171_su.png",
+      "thumbnail": "https://raw.githubusercontent.com/fribbels/Fribbels-Epic-7-Optimizer/main/data/cachedimages/m0171_l.png"
+    },
+    "ex_equip": [],
+    "calculatedStatus": {
+      "lv50FiveStarNoAwaken": {
+        "cp": 10941,
+        "atk": 604,
+        "hp": 4138,
+        "spd": 106,
+        "def": 449,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv50FiveStarFullyAwakened": {
+        "cp": 12452,
+        "atk": 778,
+        "hp": 4726,
+        "spd": 106,
+        "def": 449,
+        "chc": 0.19,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv60SixStarNoAwaken": {
+        "cp": 13659,
+        "atk": 753,
+        "hp": 5203,
+        "spd": 106,
+        "def": 557,
+        "chc": 0.15,
+        "chd": 1.5,
+        "dac": 0.05,
+        "eff": 0,
+        "efr": 0
+      },
+      "lv60SixStarFullyAwakened": {
+        "cp": 15955,
+        "atk": 1089,
+        "hp": 5237,
+        "spd": 106,
+        "def": 525,
+        "chc": 0.23,
+        "chd": 1.6,
+        "dac": 0.05,
+        "eff": 0.0,
         "efr": 0
       }
     }
