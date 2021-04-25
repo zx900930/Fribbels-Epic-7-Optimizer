@@ -56,6 +56,10 @@ module.exports = {
         buildGrid(localeText);
     },
 
+    resetSort: () => {
+        heroesGrid.gridOptions.columnApi.resetColumnState()
+    },
+
     refresh: async (heroes, id) => {
         if (!heroes) {
             const response = await Api.getAllHeroes();
@@ -219,6 +223,7 @@ function buildGrid(localeText) {
         },
 
         columnDefs: [
+            {width: 40, rowDrag: true},
             {headerName: i18next.t('icon'), field: 'name', width: 60, cellRenderer: (params) => renderIcon(params.value)},
             {headerName: i18next.t('elem'), field: 'attribute', width: 50, filter: 'agTextColumnFilter', cellRenderer: (params) => renderElement(params.value)},
             {headerName: i18next.t('class'), field: 'role', width: 50, filter: 'agTextColumnFilter', cellRenderer: (params) => renderClass(params.value)},
@@ -228,8 +233,8 @@ function buildGrid(localeText) {
             // {headerName: i18next.t('Class'), field: 'role', width: 100, cellRenderer: (params) => renderClass(params.value)},
             {headerName: i18next.t('sets'), field: 'equipment', width: 85, cellRenderer: (params) => renderSets(params.value)},
             {headerName: i18next.t('atk'), field: 'atk'},
-            {headerName: i18next.t('hp'), field: 'hp'},
             {headerName: i18next.t('def'), field: 'def'},
+            {headerName: i18next.t('hp'), field: 'hp'},
             {headerName: i18next.t('spd'), field: 'spd'},
             {headerName: i18next.t('cr'), field: 'cr'},
             {headerName: i18next.t('cd'), field: 'cd'},
@@ -256,6 +261,12 @@ function buildGrid(localeText) {
         localeText:localeText,
         onRowSelected: onHeroRowSelected,
         onRowClicked: onHeroRowClick,
+        onRowDragEnter: onRowDragEnter,
+        onRowDragEnd: onRowDragEnd,
+        onRowDragMove: onRowDragMove,
+        onRowDragLeave: onRowDragLeave,
+        suppressMoveWhenRowDragging: true,
+        navigateToNextCell: GridRenderer.arrowKeyNavigator(this, "heroesGrid"),
     };
 
     const buildsGridOptions = {
@@ -301,15 +312,15 @@ function buildGrid(localeText) {
         cacheBlockSize: 1000,
         maxBlocksInCache: 1,
         suppressPaginationPanel: false,
-        navigateToNextCell: navigateToNextCell.bind(this),
+        navigateToNextCell: GridRenderer.arrowKeyNavigator(this, "buildsGrid"),
+
+        // navigateToNextCell: navigateToNextCell.bind(this),
     };
 
     const gridDiv = document.getElementById('heroes-table');
     const buildsGridDiv = document.getElementById('builds-table');
     heroesGrid = new Grid(gridDiv, gridOptions);
     buildsGrid = new Grid(buildsGridDiv, buildsGridOptions);
-    // console.log("HeroesGrid", heroesGrid);
-    // console.log("HeroesGrid", heroesGrid);
 }
 
 
@@ -504,7 +515,6 @@ async function onBuildRowSelected(event) {
     console.log("onBuildRowSelected", event);
     if (event.node.selected) {
         const hero = HeroesGrid.getSelectedRow();
-        // const baseStatsResponse = await Api.getBaseStats(hero.name);
         const useReforgeStats = HeroesTab.getUseReforgedStats();
         const heroResponse = await Api.getHeroById(hero.id, useReforgeStats);
         const baseStats = heroResponse.baseStats;
@@ -512,9 +522,27 @@ async function onBuildRowSelected(event) {
 
         const itemsResponse = await Api.getItemsByIds(itemIds);
         const items = itemsResponse.items;
+        const mods = event.data.mods || [];
 
         for (var i = 0; i < 6; i++) {
             const item = items[i];
+            const mod = mods[i];
+
+            console.warn("modding", items, mods, event.data);
+
+            if (mod) {
+                for (var j = 0; j < item.substats.length; j++) {
+                    const substat = item.substats[j];
+                    if (j == mod.index) {
+                        substat.type = mod.type;
+                        substat.value = mod.value;
+                        substat.originalType = mod.originalType;
+                        substat.originalValue = mod.originalValue;
+                        substat.modified = true;
+                    }
+                }
+            }
+
             // const itemId = itemIds[i];
             const displayId = Constants.gearDisplayIdByIndex[i];
             const html = HtmlGenerator.buildItemPanel(item, "heroesGrid", baseStats)
@@ -558,7 +586,6 @@ function redrawPreviewHero(heroId) {
 
         module.exports.refreshBuilds(response);
 
-        // const baseStatsResponse = await Api.getBaseStats(hero.name);
         const baseStats = response.baseStats;
 
         for (var i = 0; i < 6; i++) {
@@ -633,4 +660,25 @@ function updateCurrentAggregate(hero) {
     }
 
     console.log("Aggregated", currentAggregate);
+}
+
+function onRowDragEnter(e) {
+  // console.log('onRowDragEnter', e);
+}
+
+async function onRowDragEnd(e) {
+    console.log('onRowDragEnd', e);
+    const dragged = e.node.data;
+    const destination = e.overNode.data;
+
+    await Api.reorderHeroes(dragged.id, destination.id);
+    HeroesTab.redraw();
+}
+
+function onRowDragMove(e) {
+  // console.log('onRowDragMove', e);
+}
+
+function onRowDragLeave(e) {
+  // console.log('onRowDragLeave', e);
 }

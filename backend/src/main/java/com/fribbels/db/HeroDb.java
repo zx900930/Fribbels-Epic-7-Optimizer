@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class HeroDb {
@@ -98,7 +97,10 @@ public class HeroDb {
                  .collect(Collectors.toSet())
                  .contains(build.getBuildHash())) {
             hero.getBuilds().add(build);
+            System.out.println("Found new build. Adding to hero: " + hero);
         }
+
+        System.out.println("Done adding");
     }
 }
 

@@ -74,6 +74,12 @@ public class Sorter {
                     case SCORE:
                         Arrays.sort(data, Comparator.comparingInt(HeroStats::getScore));
                         break;
+                    case PRIORITY:
+                        Arrays.sort(data, Comparator.comparingInt(HeroStats::getPriority));
+                        break;
+                    case CONVERSIONS:
+                        Arrays.sort(data, Comparator.comparingInt(HeroStats::getConversions));
+                        break;
                     default:
                         System.err.println("INVALID COLUMN " + column);
                 }
@@ -140,6 +146,12 @@ public class Sorter {
                         break;
                     case SCORE:
                         Arrays.sort(data, Comparator.comparingInt(HeroStats::getScore).reversed());
+                        break;
+                    case PRIORITY:
+                        Arrays.sort(data, Comparator.comparingInt(HeroStats::getPriority).reversed());
+                        break;
+                    case CONVERSIONS:
+                        Arrays.sort(data, Comparator.comparingInt(HeroStats::getConversions).reversed());
                         break;
                     default:
                         System.err.println("INVALID COLUMN " + column);

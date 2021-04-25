@@ -12,9 +12,6 @@
         }
     }
 })();
-
-
-
 // (function(){
 //     var original = console.warn;
 //     console.warn = function() {
@@ -26,11 +23,12 @@
 //     }
 // })();
 
+global.Files = require('./files');
+global.Logger = require('./logger');
 global.I18n = require('./i18n/i18n');
 
 global.Assets = require('./assets');
 global.Path = window.require('path');
-global.Files = require('./files');
 global.Constants = require('./constants');
 global.Api = require('./api');
 global.Dialog = require('./dialog');
@@ -52,6 +50,7 @@ global.HeroesGrid = require('./grids/heroesGrid');
 global.OptimizerGrid = require('./grids/optimizerGrid');
 global.ItemsGrid = require('./grids/itemsGrid');
 
+global.ModificationFilter = require('./modificationFilter');
 global.Subprocess = require('./subprocess');
 global.Selectors = require('./selectors');
 global.Settings = require('./settings');
@@ -94,6 +93,7 @@ const Jimp = require('jimp');
 
 document.addEventListener("DOMContentLoaded", async () => {
     setupLinks();
+    Logger.initialize();
 
     console.log("DOMContentLoaded")
 

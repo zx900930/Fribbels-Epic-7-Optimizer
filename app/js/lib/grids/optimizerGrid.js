@@ -14,7 +14,7 @@ var darkGradient = tinygradient([
 
 var gradient = lightGradient;
 
-optimizerGrid = null;
+global.optimizerGrid = null;
 var currentSortModel;
 var currentAggregate = {};
 var selectedRow = null;
@@ -108,6 +108,24 @@ module.exports = {
                 row.items[3],
                 row.items[4],
                 row.items[5]
+            ];
+        }
+        return [];
+    },
+
+    getSelectedGearMods: () => {
+        const selectedRows = optimizerGrid.gridOptions.api.getSelectedRows();
+        if (selectedRows.length > 0) {
+            const row = selectedRows[0];
+            console.log("getSelectedGearModIds SELECTED ROW", row)
+
+            return [
+                row.mods[0],
+                row.mods[1],
+                row.mods[2],
+                row.mods[3],
+                row.mods[4],
+                row.mods[5]
             ];
         }
         return [];
@@ -259,8 +277,8 @@ function buildGrid(localeText) {
         columnDefs: [
             {headerName: i18next.t('sets'), field: 'sets', width: 100, cellRenderer: (params) => GridRenderer.renderSets(params.value)},
             {headerName: i18next.t('atk'), field: 'atk', width: DIGITS_4},
-            {headerName: i18next.t('hp'), field: 'hp', width: DIGITS_5},
             {headerName: i18next.t('def'), field: 'def', width: DIGITS_4},
+            {headerName: i18next.t('hp'), field: 'hp', width: DIGITS_5},
             {headerName: i18next.t('spd'), field: 'spd', width: DIGITS_3},
             {headerName: i18next.t('cr'), field: 'cr', width: DIGITS_3},
             {headerName: i18next.t('cd'), field: 'cd', width: DIGITS_3},
@@ -277,6 +295,7 @@ function buildGrid(localeText) {
             {headerName: i18next.t('mcds'), field: 'mcdmgps', width: DIGITS_4},
             {headerName: i18next.t('dmgh'), field: 'dmgh', width: DIGITS_5},
             {headerName: i18next.t('score'), field: 'score', width: DIGITS_3},
+            {headerName: i18next.t('prio'), field: 'priority', width: DIGITS_3},
             {headerName: i18next.t('upg'), field: 'upgrades', width: DIGITS_2, width: 48},
             {headerName: i18next.t('actions'), field: 'property', width: 50, sortable: false, cellRenderer: (params) => GridRenderer.renderStar(params.value)},
         ],
@@ -294,14 +313,13 @@ function buildGrid(localeText) {
         suppressScrollOnNewData: true,
         onCellMouseOver: cellMouseOver,
         onCellMouseOut: cellMouseOut,
-        navigateToNextCell: GridRenderer.arrowKeyNavigator().bind(this),
+        navigateToNextCell: GridRenderer.arrowKeyNavigator(this, "optimizerGrid"),
     };
 
     const gridDiv = document.getElementById('myGrid');
     optimizerGrid = new Grid(gridDiv, gridOptions);
     console.log("Built optimizergrid", optimizerGrid);
 }
-
 
 function columnGradient(params) {
     try {
@@ -334,7 +352,8 @@ function onRowSelected(event) {
     StatPreview.draw(pinnedRow, selectedRow);
 
     const gearIds = module.exports.getSelectedGearIds();
-    OptimizerTab.drawPreview(gearIds);
+    const mods = module.exports.getSelectedGearMods();
+    OptimizerTab.drawPreview(gearIds, mods);
 }
 
 function cellMouseOver(event) {

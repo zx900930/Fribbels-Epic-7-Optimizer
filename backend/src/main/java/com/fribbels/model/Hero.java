@@ -1,7 +1,9 @@
 package com.fribbels.model;
 
 import com.fribbels.enums.Gear;
+import com.fribbels.enums.StatType;
 import com.fribbels.request.BonusStatsRequest;
+import com.fribbels.request.ModStatsRequest;
 import com.fribbels.request.OptimizationRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +11,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Wither;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,10 +45,13 @@ public class Hero {
 
     public int upgrades;
     public int score;
+    public int priority;
+    public int conversions;
 
     private String id;
     public String name;
     private int rarity;
+    private int stars;
     private String attribute;
     private String role;
 
@@ -84,6 +88,13 @@ public class Hero {
     private int bonusMaxDefPercent;
     private int bonusMaxHpPercent;
 
+    private String modGrade;
+    private Float rollQuality;
+    private Integer limitRolls;
+    private List<StatType> keepStats;
+    private List<StatType> ignoreStats;
+    private List<StatType> discardStats;
+
     private int[] sets;
     private int cp;
 
@@ -110,6 +121,15 @@ public class Hero {
         }
 
         return equipment.put(gear, item);
+    }
+
+    public void setModStats(final ModStatsRequest modStatsRequest) {
+        this.modGrade = modStatsRequest.getModGrade();
+        this.rollQuality = modStatsRequest.getRollQuality();
+        this.limitRolls = modStatsRequest.getLimitRolls();
+        this.keepStats = modStatsRequest.getKeepStats();
+        this.ignoreStats = modStatsRequest.getIgnoreStats();
+        this.discardStats = modStatsRequest.getDiscardStats();
     }
 
     public void setBonusStats(final BonusStatsRequest bonusStats) {
@@ -141,6 +161,8 @@ public class Hero {
         this.artifactLevel = bonusStats.getArtifactLevel();
         this.imprintNumber = bonusStats.getImprintNumber();
         this.eeNumber = bonusStats.getEeNumber();
+
+        this.stars = bonusStats.getStars();
     }
 
     public Map<Gear, Item> getEquipment() {
@@ -176,5 +198,7 @@ public class Hero {
 
         this.upgrades = heroStats.getUpgrades();
         this.score = heroStats.getScore();
+        this.priority = heroStats.getPriority();
+        this.conversions = heroStats.getConversions();
     }
 }

@@ -23,6 +23,7 @@ module.exports = {
     },
 
     augmentMaterial: (gear) => {
+        gear.convertable = 0;
         if (!gear || !gear.gear || !gear.set) return;
         const name = gear.name;
 
@@ -42,6 +43,7 @@ module.exports = {
         } else if (conversionDistance > huntDistance && conversionDistance > 0.2) {
             gear.material = "Conversion";
             gear.mconfidence = "" + Math.round(100 * Utils.stringDistance(name, conversionName))
+            gear.convertable = 1;
         } else if (huntDistance > conversionDistance && huntDistance > 0.2) {
             gear.material = "Hunt";
             gear.mconfidence = "" + Math.round(100 * Utils.stringDistance(name, huntName));
@@ -173,7 +175,12 @@ const nameBySetByGear = {
 
 // We can get reforged stats of non +15 gear however
 function getItemReforgedStats(gear) {
+
     if (module.exports.isReforgeable(gear)) {
+        if (gear.alreadyPredictedReforge) {
+            return;
+        }
+
         if (!gear.substats) {
             Notifier.error("Cannot calculate reforged stats. Find the item and fix it: " + JSON.stringify(gear));
             return;

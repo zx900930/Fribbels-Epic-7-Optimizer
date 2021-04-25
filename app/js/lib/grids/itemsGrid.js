@@ -18,7 +18,7 @@ var gradient = lightGradient;
 var scoreGradient = lightScoreGradient;
 
 
-var itemsGrid;
+global.itemsGrid = null;
 var currentAggregate = {};
 var selectedCell = null;
 
@@ -106,6 +106,8 @@ module.exports = {
             onCellMouseOver: cellMouseOver,
             onCellMouseOut: cellMouseOut,
             suppressScrollOnNewData: true,
+            navigateToNextCell: GridRenderer.arrowKeyNavigator(this, "itemsGrid"),
+
             // onRowSelected: onRowSelected,
         };
         let gridDiv = document.getElementById('gear-grid');
@@ -518,7 +520,7 @@ function cellMouseOut(event) {
     drawPreview(item);
 }
 
-function drawPreview(item) {
+async function drawPreview(item) {
     if (!item) {
         document.getElementById("gearTabPreview").innerHTML = "";
         return;
@@ -529,7 +531,7 @@ function drawPreview(item) {
     if (!item.equippedByName) {
 
     } else {
-        baseStats = HeroData.getBaseStatsByName(item.equippedByName)
+        baseStats = (await Api.getHeroById(item.equippedById, true)).baseStats;
     }
 
     // TODO ADD STAT SELECTOR

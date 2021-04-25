@@ -62,6 +62,21 @@ module.exports = {
             imprintNumber: bonusStats.imprintNumber,
             eeNumber: bonusStats.eeNumber,
 
+            stars: bonusStats.stars,
+
+            heroId: heroId
+        });
+    },
+
+    setModStats: async (modStats, heroId) => {
+        return post('/heroes/setModStats', {
+            discardStats: modStats.discardStats,
+            ignoreStats: modStats.ignoreStats,
+            keepStats: modStats.keepStats,
+            modGrade: modStats.modGrade,
+            rollQuality: modStats.rollQuality,
+            limitRolls: modStats.limitRolls,
+
             heroId: heroId
         });
     },
@@ -78,12 +93,23 @@ module.exports = {
         });
     },
 
+    reorderHeroes: async (id, destinationId) => {
+        return post('/heroes/reorderHeroes', {
+            id: id,
+            destinationId: destinationId
+        });
+    },
+
     cancelOptimizationRequest: async () => {
         return post('/system/interrupt');
     },
 
     getOptimizationProgress: async () => {
         return post('/optimization/getProgress');
+    },
+
+    getOptimizationInProgress: async () => {
+        return post('/optimization/inProgress');
     },
 
     getAllItems: async () => {
@@ -102,15 +128,31 @@ module.exports = {
         });
     },
 
+    getModItems: async (ids) => {
+        return post('/optimization/getModItems', {
+            ids: ids
+        });
+    },
+
     addItems: async (items) => {
         return post('/items/addItems', {
             items: items
         });
     },
 
-    mergeItems: async (items) => {
+    mergeItems: async (items, enhanceLimit) => {
         return post('/items/mergeItems', {
-            items: items
+            items: items,
+            enhanceLimit: enhanceLimit
+        });
+    },
+
+    mergeHeroes: async (items, mergeHeroes, enhanceLimit, heroFilter) => {
+        return post('/items/mergeHeroes', {
+            items: items,
+            mergeHeroes: mergeHeroes,
+            enhanceLimit: enhanceLimit,
+            heroFilter: heroFilter
         });
     },
 
@@ -254,6 +296,11 @@ function post(api, request) {
         .then(response => {
             // console.trace("Api call", api, request, response);
             console.log("Api call", api, request, response);
+
+            if (response.data == "ERROR") {
+                console.error("Subprocess error: " + api);
+            }
+
             resolve(response.data);
         })
         .catch(error => {

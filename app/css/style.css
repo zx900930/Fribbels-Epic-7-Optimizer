@@ -153,6 +153,15 @@ body {
   cursor: pointer;
   margin-bottom: 1px;
   margin-left: 1px;
+  margin-right: 5px;
+}
+
+.importerButton {
+  width: 200px;
+  cursor: pointer;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-right: 5px;
 }
 
 .optimization-results-panel {
@@ -306,11 +315,11 @@ input {
 }
 
 .optimizer-number-input {
-  height: 18px;
+  height: 16px;
   /*min-width: 50px;
   max-width: 60px;*/
   width: 50px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .inputStatLabel {
@@ -621,8 +630,19 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 5px;
 }
 
+.editGearFormHalf {
+  width: 50%;
+}
+.editGearFormVertical {
+  border-left: 1px solid #e8e8e8;
+  height: 400px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
 .editGearStatLabel {
-  width: 100px;
+  width: 110px;
   text-align: left;
   margin-top: auto;
   margin-bottom: auto;
@@ -1480,4 +1500,87 @@ input:checked + .darkSlider:before {
 }
 .swal2-success-fix {
   display: none;
+}
+
+.swal2-actions {
+  z-index: 0 !important;
+}
+.groupContainer {
+  display: flex;
+  flex-direction: row;
+}
+.groupColumn {
+  width: 160px;
+  margin-right: 25px;
+}
+.list-group-item {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  background-color: var(--input-color);
+  color: var(--font-color);
+  border-radius: 1rem;
+  border-radius: 5px;
+  margin-top: 5px;
+  height: 30px;
+  text-align: left;
+  padding-left: 6px;
+  line-height: 30px;
+}
+.dragOrderList {
+  font-size: 14px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding-top: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+  background: #7d7d7d;
+  min-height: 385px;
+  width: 120px;
+}
+
+:root {
+    --input-color: #e0e0e0;
+    --inactive-color: #d0d0d0;
+
+/*
+    --bg-color: #212529;
+    --font-color: #e2e2e2;
+    --border-color: #2D3136;
+    --accent-red: #F84C48;
+    --outline-color: #f84b4860;
+    --btn-color: #2D3136;
+    --accent-green: #00BE9B;
+    --scrollbar-grey: #5a5a5a;
+    --link-blue: #1e90ff;*/
+}
+
+/* Collapse */
+/* Style the button that is used to open and close the collapsible content */
+
+.collapsible {
+  background-color: var(--input-color);
+  color: var(--font-color);
+  cursor: pointer;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 10px;
+  outline: none !important;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: var(--inactive-color);
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  /*background-color: #f1f1f1;*/
 }
