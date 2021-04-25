@@ -252,6 +252,7 @@
   "Artifact": "神器",
   "Imprint": "阵型",
   "EE": "专属装备",
+  "Stars": "星级",
   "Crit Rate": "暴率",
   "Crit Dmg": "暴伤",
   "OK": "确定",
@@ -847,5 +848,8 @@
     "Bomb Model Kanna": "暴击型卡农",
     "Mighty Scout": "侦察兵玛伊堤",
     "Solitaria of the Snow": "雪国的苏莉塔妮亚",
-    "Wild Angara": "野生安卡拉"
+    "Wild Angara": "野生安卡拉",
+    "Air-to-Surface Missile: MISH": "空对地导弹: 美莎",
+    "Twilight Calamity": "落日之灾",
+    "War Horn": "进攻号角"
 }
