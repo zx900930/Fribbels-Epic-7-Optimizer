@@ -290,7 +290,7 @@ module.exports = {
 
 
         document.getElementById('importMergeFileSelect').addEventListener("click", async () => {
-            const enhanceLimit = parseInt($('#importHeroesLimitEnhance').val());
+            const enhanceLimit = parseInt($('#importLimitEnhance').val());
             const options = {
                 title: "Load file",
                 defaultPath : Files.path(Settings.getDefaultPath() + '/gear.txt'),
@@ -377,6 +377,7 @@ module.exports = {
                     newHero.attribute = newHero.data.attribute;
                     newHero.role = newHero.data.role;
                     newHero.path = heroName;
+                    newHero.stars = hero.stars;
 
                     hero.data = newHero;
                     filteredHeroes.push(hero);

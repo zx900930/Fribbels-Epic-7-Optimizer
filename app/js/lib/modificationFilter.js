@@ -65,7 +65,7 @@ module.exports = {
             }
         }
 
-        if (!enableMods || !hero.limitRolls || !hero.rollQuality) {
+        if (!enableMods || !hero.limitRolls || (hero.rollQuality == undefined || hero.rollQuality == null)) {
             for (var item of items) {
                 item.modId = item.id;
                 moddedItems[item.id] = item;
@@ -82,7 +82,7 @@ module.exports = {
         const limitRolls = hero.limitRolls;
         const rollQuality = hero.rollQuality / 100;
         const grade = hero.modGrade
-
+        const keepStatOptions = hero.keepStatOptions
 
         const newItems = []
 
@@ -161,6 +161,10 @@ module.exports = {
                         continue;
                     }
 
+                    if (keepList.includes(substat.type) && keepStatOptions == "neverReplace") {
+                        continue;
+                    }
+
 
                     const itemCopy = JSON.parse(JSON.stringify(item));
                     const substatCopy = itemCopy.substats[i];
@@ -188,6 +192,8 @@ module.exports = {
                     substatCopy.reforgedValue = valueQuality;
                     substatCopy.modified = true;
 
+                    itemCopy.upgradeable = 1;
+
                     itemCopy.modId = uuidv4();
                     itemCopy.mod = {
                         originalType: substatCopy.originalType,
@@ -207,7 +213,7 @@ module.exports = {
             // newItems.push.apply(newItems, tempNewItems)
         }
 
-        console.warn(newItems);
+        console.warn("newItems", newItems);
 
         return newItems;
     }

@@ -59,7 +59,7 @@ function fixSliders() {
     //     console.log("NOT FIXING")
     //     return;
     // }
-    console.log("FIXING")
+    console.log("Fixing sliders")
     document.querySelector('#atkSlider')['rangeslider-js'].update()
     document.querySelector('#hpSlider')['rangeslider-js'].update()
     document.querySelector('#defSlider')['rangeslider-js'].update()
@@ -298,10 +298,10 @@ module.exports = {
             clearOptions();
             recalculateFilters();
         });
-        document.getElementById('accessorySetsLabel').addEventListener("click", async () => {
-            Selectors.clearGearMainAndSets();
-            recalculateFilters();
-        });
+        // document.getElementById('accessorySetsLabel').addEventListener("click", async () => {
+        //     Selectors.clearGearMainAndSets();
+        //     recalculateFilters();
+        // });
 
         buildSlider('#atkSlider')
         buildSlider('#hpSlider')
@@ -444,7 +444,7 @@ function clearStats() {
 
 function clearOptions() {
     $("#inputPredictReforges").prop('checked', true);
-    $("#inputSubstatMods").prop('checked', true);
+    $("#inputSubstatMods").prop('checked', false);
     $("#inputAllowLockedItems").prop('checked', false);
     $("#inputAllowEquippedItems").prop('checked', false);
     $("#inputKeepCurrentItems").prop('checked', false);
@@ -607,10 +607,12 @@ async function addBuild() {
     const rowId = row.id;
     const heroId = getSelectedHeroId();
 
+    const hero = (await Api.getHeroById(heroId)).hero;
+
     console.log("ADD BUILD", row)
 
     if (row.mods.filter(x => x).length > 0) {
-        row.name = "MOD: " + (!hero.modGrade ? "" : (hero.modGrade == "greater" ? "Greater" : "Lesser")) + " " + (hero.rollQuality || "") + "%";
+        row.name = "MOD: " + (!hero.modGrade ? "" : (hero.modGrade == "greater" ? "Greater" : "Lesser")) + " " + (hero.rollQuality || "0") + "%";
     }
 
     await Api.addBuild(heroId, row);
@@ -664,7 +666,7 @@ async function equipSelectedGear() {
 
 
     if (row.mods.filter(x => x).length > 0) {
-        row.name = "MOD: " + (!hero.modGrade ? "" : (hero.modGrade == "greater" ? "Greater" : "Lesser")) + " " + (hero.rollQuality || "") + "%";
+        row.name = "MOD: " + (!hero.modGrade ? "" : (hero.modGrade == "greater" ? "Greater" : "Lesser")) + " " + (hero.rollQuality || "0") + "%";
     }
 
     await Api.addBuild(heroId, row);
