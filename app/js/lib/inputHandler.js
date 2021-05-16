@@ -23,6 +23,7 @@
 //     }
 // })();
 
+
 global.Files = require('./files');
 global.Logger = require('./logger');
 global.I18n = require('./i18n/i18n');
@@ -126,9 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     Importer.addEventListener();
 
-
     console.log("Document initialized")
-
 });
 
 function setupLinks() {
@@ -136,6 +135,18 @@ function setupLinks() {
         event.preventDefault();
         let link = event.target.href;
         electron.shell.openExternal(link);
+    });
+
+    $('#discordBadge').on('click', (event) => {
+        electron.shell.openExternal('https://discord.gg/rDmB4Un7qg');
+    });
+
+    $('#donateBadge').on('click', (event) => {
+        electron.shell.openExternal('https://www.paypal.com/donate?business=FKESQZAXPN7B8&item_name=Support+Epic+7+Gear+Optimizer%21&currency_code=USD');
+    });
+
+    $('#githubBadge').on('click', (event) => {
+        electron.shell.openExternal('https://github.com/fribbels/Fribbels-Epic-7-Optimizer');
     });
 }
 

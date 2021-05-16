@@ -12,8 +12,6 @@ var darkScoreGradient2 = tinygradient([
     {color: '#38821F', pos: 1} // green
 ]);
 
-
-
 var gradient = lightGradient;
 var scoreGradient = lightScoreGradient;
 
@@ -61,7 +59,7 @@ module.exports = {
             defaultColDef: {
                 width: 45,
                 sortable: true,
-                sortingOrder: ['desc', 'asc'],
+                sortingOrder: ['desc', 'asc', null],
                 cellStyle: columnGradient,
                 // valueFormatter: numberFormatter,
             },
@@ -96,6 +94,7 @@ module.exports = {
                 // {headerName: i18next.t('Actions'), field: 'id', cellRenderer: renderActions},
                 {headerName: i18next.t('Duplicate'), field: 'duplicateId', hide: true},
                 {headerName: 'AllowedMods', field: 'allowedMods', hide: true},
+                {headerName: 'EquippedById', field: 'equippedById', hide: true},
             ],
             rowSelection: 'multiple',
             pagination: true,
@@ -105,8 +104,14 @@ module.exports = {
             onRowSelected: onRowSelected,
             onCellMouseOver: cellMouseOver,
             onCellMouseOut: cellMouseOut,
+            onCellFocused: cellFocused,
             suppressScrollOnNewData: true,
-            navigateToNextCell: GridRenderer.arrowKeyNavigator(this, "itemsGrid"),
+            navigateToNextCell: GridRenderer.arrowKeyNavigator(this, "itemsGrid", navigateCallback),
+            animateRows: true,
+            immutableData: true,
+            getRowNodeId: (data) => {
+                return data.id;
+            },
 
             // onRowSelected: onRowSelected,
         };
@@ -178,6 +183,7 @@ module.exports = {
         const statFilter = filters.statFilter;
         const substatFilter = filters.substatFilter;
         const duplicateFilter = filters.duplicateFilter;
+        const equippedOrNotFilter = filters.equippedOrNotFilter;
         const modifyFilter = filters.modifyFilter;
 
         const setFilterComponent = itemsGrid.gridOptions.api.getFilterInstance('set');
@@ -371,6 +377,25 @@ module.exports = {
             });
         }
 
+        const equippedOrNotFilterComponent = itemsGrid.gridOptions.api.getFilterInstance('equippedById');
+        if (!equippedOrNotFilter) {
+            equippedOrNotFilterComponent.setModel(null);
+        } else {
+            if (equippedOrNotFilter == "equipped") {
+                equippedOrNotFilterComponent.setModel({
+                    type: 'contains',
+                    filter: "-"
+                });
+            }
+
+            if (equippedOrNotFilter == "unequipped") {
+                equippedOrNotFilterComponent.setModel({
+                    type: 'notContains',
+                    filter: '-'
+                });
+            }
+        }
+
         itemsGrid.gridOptions.api.onFilterChanged();
         updateSelectedCount();
     }
@@ -505,19 +530,31 @@ function updateSelectedCount() {
     $('#selectedCount').html(count);
 }
 
+function navigateCallback(selectedNode) {
+    // console.log("callback", selectedNode);
 
-function cellMouseOver(event) {
-    const item = event.data;
+    if (!selectedNode) return;
+    const item = selectedNode.data;
+    selectedCell = item;
 
     drawPreview(item);
 }
 
-function cellMouseOut(event) {
-    const item = selectedCell;
+function cellFocused(event) {
 
-    if (!item) return;
+}
 
-    drawPreview(item);
+async function cellMouseOver(event) {
+    const item = event.data;
+
+    await drawPreview(item);
+}
+
+async function cellMouseOut(event) {
+    if (!selectedCell) return;
+    // console.log("out", event);
+
+    await drawPreview(selectedCell);
 }
 
 async function drawPreview(item) {
@@ -531,7 +568,8 @@ async function drawPreview(item) {
     if (!item.equippedByName) {
 
     } else {
-        baseStats = (await Api.getHeroById(item.equippedById, true)).baseStats;
+        // baseStats = (await Api.getHeroById(item.equippedById, true)).baseStats;
+        baseStats = HeroData.getBaseStatsByStars(item.equippedByName, true, 6);
     }
 
     // TODO ADD STAT SELECTOR

@@ -89,6 +89,7 @@ module.exports = {
         for (item of items) {
             item.modId = item.id;
             moddedItems[item.id] = item;
+            item.upgradeable = 0;
             newItems.push(item);
 
             const existingSubstats = item.substats.map(x => x.type);
@@ -213,7 +214,7 @@ module.exports = {
             // newItems.push.apply(newItems, tempNewItems)
         }
 
-        console.warn("newItems", newItems);
+        console.warn("newItems", items, newItems);
 
         return newItems;
     }

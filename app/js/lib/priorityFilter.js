@@ -1,6 +1,6 @@
 module.exports = {
 
-    applyPriorityFilters: (params, items, baseStats, allItems, reforge) => {
+    applyPriorityFilters: (params, items, baseStats, allItems, reforge, inputSubstatMods) => {
         var passed = [];
 
         if (filterDisabled(params)) {
@@ -8,12 +8,13 @@ module.exports = {
             return items;
         }
 
-        console.log("Priority filter enabled")
+        console.log("Priority filter enabled", items)
 
         const groups = groupBy(items, 'gear');
         const allItemsGroups = groupBy(allItems, 'gear');
 
         console.log("Grouped gears", groups);
+        console.log("AllItems grouped gears", allItemsGroups);
 
         for (var key of Object.keys(groups)) {
             var gearArr = groups[key];
@@ -25,7 +26,12 @@ module.exports = {
 
             // console.log("SORTED", key, gearArr);
 
-            const index = Math.round(params.inputFilterPriority / 100 * allItemsGroups[key].length);
+            var groupLength = allItemsGroups[key].length
+            if (inputSubstatMods) {
+                groupLength = Math.max(groups[key].length, allItemsGroups[key].length);
+            }
+
+            const index = Math.ceil(params.inputFilterPriority / 100 * groupLength);
             passed = passed.concat(gearArr.slice(0, index));
         }
 
