@@ -390,8 +390,22 @@ module.exports = {
 
             if (equippedOrNotFilter == "unequipped") {
                 equippedOrNotFilterComponent.setModel({
-                    type: 'notContains',
-                    filter: '-'
+                    filterType: 'string',
+                    operator: 'AND',
+                    condition1: {
+                        filterType: 'string',
+                        type: 'notContains',
+                        filter: '-'
+                    },
+                    condition2: {
+                        filterType: 'string',
+                        type: 'notContains',
+                        filter: '1'
+                    }
+
+
+                    // type: 'notContains',
+                    // filter: '-'
                 });
             }
         }
@@ -581,5 +595,8 @@ function onRowSelected(event) {
     if (event.node.selected) {
         selectedCell = event.data;
         updateSelectedCount();
+
+        // Testing purposes
+        // Reforge.calculateMaxes(event.data);
     }
 }
